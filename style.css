@@ -100,7 +100,7 @@ span{
     height: 200px;
     width: 400px;
     background-color: #3347B0;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    filter: drop-shadow(12px 12px 4px #3347B080);
     color: white;
     font-size: 4rem;
     justify-content: center;
@@ -109,4 +109,55 @@ span{
 }
 .imagem-curso{
     height: 80px;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.todosAlunos{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 400px;
+    padding-right: 400px;
+}
+.cursoNome{
+    place-self: center;
+    color: #3347B0;
+    padding-left: 10px;
+    display: flex;
+    margin-left: 80px;
+    gap: 30px;
+    border-radius: 16px;
+}
+.nomeCurso{
+    font-weight: 500;
+}
+.alunos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 170px;
+    background-color: #3347B0;
+    padding-bottom: 35px;
+    padding-top: 0px;
+    place-content: center;
+    justify-content: center;
+    align-items: center;
+    place-self: center;
+    filter: drop-shadow(12px 12px 4px #3347B080);
+}
+.nomeAluno{
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+}
+.foto1{
+    justify-self: center;
+    width: 160px;
+    border-radius: 700px;
 }
