@@ -1,5 +1,7 @@
 'use strict'
 const main = document.querySelector('main')
+const btnLogo = document.getElementById('logo')
+const btnSair = document.getElementById('sair')
 
 const acharCursos = async function() {
     const url = "https://lion-school-backend.onrender.com/cursos"
@@ -189,7 +191,16 @@ const criarTelaAlunoSozinho = async function(alunoID) {
     main.textContent = ''
     main.append(sectionInfoAluno)})
 }
-
+btnLogo.addEventListener('click', async () => {
+    main.textContent = ''
+    acharCursos()
+    criarTela1()
+})
+btnSair.addEventListener('click', async () => {
+    main.textContent = ''
+    acharCursos()
+    criarTela1()
+})
 module.exports = {
     acharCursos,
     acharAlunos,
