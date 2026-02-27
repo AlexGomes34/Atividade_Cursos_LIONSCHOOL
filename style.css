@@ -161,3 +161,89 @@ span{
     width: 160px;
     border-radius: 700px;
 }
+.nome-alunoS{
+    font-size:2rem;
+}
+
+.section-info-aluno {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.section-info-aluno .aluno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    width: 30%;
+    color: #3347B0;
+    padding: 5vh 3vw;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+    border-radius: 3px;
+    height: auto;
+}
+
+.section-info-aluno .aluno img {
+    border-radius: 100%;
+    width: 400px;
+}
+
+.section-info-aluno .desempenho {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+    border-radius: 3px;
+    padding: 11vh 2vw;
+    width: 30%;
+    height: auto;
+}
+
+.section-info-aluno .desempenho li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+}
+
+.barra {
+    width: 12px;
+    height: 200px;
+    background-color: #f0f2f5;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.preenchimento {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.azul {
+    background-color: #3347B0;
+    box-shadow: 0 0 15px rgba(59, 91, 219, 0.4);
+}
+.texto-az{
+    color: #3347B0;
+}
+
+.vermelho {
+    background-color: #C11010;
+    box-shadow: 0 0 15px rgba(201, 42, 42, 0.4);
+}
+.texto-vm{
+    color: #C11010;
+}
+
+.amarelo {
+    background-color: #E5B657;
+    box-shadow: 0 0 15px rgba(252, 196, 25, 0.4);
+}
+.texto-am{
+    color: #E5B657;
+}

@@ -2,7 +2,7 @@
 const main = document.querySelector('main')
 
 const acharCursos = async function() {
-    const url = "https://lion-school-phbo.onrender.com/cursos"
+    const url = "https://lion-school-backend.onrender.com/cursos"
     const response = await fetch(url)
     const cursos = await response.json()
     return cursos
@@ -10,14 +10,14 @@ const acharCursos = async function() {
 }
 
 const acharAlunos = async function(cursoID){
-    const url = `https://lion-school-phbo.onrender.com/alunos?curso_id=${cursoID}`
+    const url = `https://lion-school-backend.onrender.com/alunos?curso_id=${cursoID}`
     const response = await fetch(url)
     const alunos = await response.json()
     return alunos
 }
 
 const acharAlunoSozinho = async function(alunoID){
-    const url = `https://lion-school-phbo.onrender.com/alunos/${alunoID}`
+    const url = `https://lion-school-backend.onrender.com/alunos/${alunoID}`
     const response = await fetch(url)
     const aluno = await response.json()
     console.log(aluno)
@@ -135,6 +135,57 @@ const criarTelaAlunos = async function (cursoID) {
    
 }
 
-const criarTelaAlunoSozinho = async function() {
+const criarTelaAlunoSozinho = async function(alunoID) {
+    const sectionInfoAluno = document.createElement('section')
+    const divAluno = document.createElement('div')
+    const imgAluno = document.createElement('img')
+    const h2Nome = document.createElement('h1')
 
+    const ulDesempenho = document.createElement('ul')
+
+    const aluno = await acharAlunoSozinho(alunoID)
+
+    imgAluno.src = aluno.foto
+    h2Nome.textContent = aluno.nome
+    h2Nome.classList.add('nome-alunoS')
+    divAluno.append(imgAluno, h2Nome)
+    divAluno.classList.add('aluno')
+
+    aluno.desempenho.forEach(materia => {
+        const liMateria = document.createElement('li')
+        const pDesempenho = document.createElement('p')
+        const divBarra = document.createElement('div')
+        const divPreenchimento = document.createElement('div')
+        const pMateria = document.createElement('p')
+
+        pDesempenho.textContent = materia.valor
+        pMateria.textContent = materia.categoria
+        
+        divPreenchimento.style.height = `${materia.valor}%`
+        divBarra.append(divPreenchimento)
+        
+        liMateria.append(pDesempenho, divBarra, pMateria)
+        ulDesempenho.append(liMateria)
+
+        divBarra.classList.add('barra')
+        divPreenchimento.classList.add('preenchimento')
+        
+        if(materia.valor >= 75){
+            divPreenchimento.classList.add('azul')
+            pDesempenho.classList.add('texto-az')
+            pMateria.classList.add('texto-az')
+        }else if(materia.valor < 75 && materia.valor > 49){
+            divPreenchimento.classList.add('amarelo')
+            pDesempenho.classList.add('texto-am')
+            pMateria.classList.add('texto-am')
+        }else if(materia.valor < 49 && materia.valor > -1){
+            divPreenchimento.classList.add('vermelho')
+            pDesempenho.classList.add('texto-vm')
+            pMateria.classList.add('texto-vm')
+        }
+    ulDesempenho.classList.add('desempenho')
+    sectionInfoAluno.append(divAluno, ulDesempenho)
+    sectionInfoAluno.classList.add('section-info-aluno')
+    main.textContent = ''
+    main.append(sectionInfoAluno)})
 }
